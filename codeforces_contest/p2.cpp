@@ -1,37 +1,21 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define fio ios::sync_with_stdio(false);cin.tie(nullptr);
-#define ll long long
+using ll =long long;
+//ll dp[10][2][2];
+
 class prblm2{
 public:
-    void makeItPermu(){
-       int n;cin >> n;
+    void nearestSquare(){
 
-       vector<tuple<int,int,int>>  oprations;
+        int n, f, s;  cin >> n;
+        // calcu
 
-       oprations.emplace_back(1,  1,  n);
+        s =  (int ) sqrt(n);  f = s*s;
+        
+        cout << f <<  endl;
 
-
-       for(int  i=2  ;i<=n ;++i){
-
-        int ager_len,shur;
-        ager_len = n - i +  1;
-        shur  = ager_len + 1;
-
-        oprations.emplace_back(i,1,  ager_len);
-
-        if(shur <= n){
-            oprations.emplace_back(i,shur ,  n);
-        }
-       }
-       cout <<  oprations.size() << endl;
-
-       for(  auto &[sari,  l , r] : oprations){
-        cout   <<  sari <<  " "  << l <<  " "  << r  << endl;
-       }
-
-
-
+        
     }
 };
 int main()
@@ -39,8 +23,9 @@ int main()
     fio
     int t;cin>>t;
     while(t--){
+
         prblm2 p2soln;
-        p2soln.makeItPermu();
+       p2soln.nearestSquare();
     }
    
    return 0;
