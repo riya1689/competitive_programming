@@ -1,26 +1,32 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define fio ios::sync_with_stdio(false);cin.tie(nullptr);
 using ll =long long;
 
-class prblm1{
-public:
-    void divideInto3(){
-        int  n , ab , reminder ,mini,mxi, nt_b;cin >> n;
-        ab = n/3;  reminder = n%3; 
-        mini = ab;  mxi = ab + (reminder > 0 ?  1  :  0);
-        cout << mxi  - mini  << endl;
-
-    }
-};
 int main()
 {
-    fio
-   
+    ios_base::sync_with_stdio(false);  
+    cin.tie(NULL);
+    ll t;cin>>t;
+    while(t--){
+        ll n,m;cin>>n;
+        string a; cin >> a;
+        cin >> m;
+        string b,c;
+        cin >> b>> c;
+        deque<char> result(a.begin(),a.end());
+        for(ll i=0;i<m;++i){
+            if(c[i] =='V'){
+                result.push_front(b[i]);
+            }
+            else{
+                result.push_back(b[i]);
+            }
+        }
+        string final_result(result.begin(),result.end());
+        cout << final_result<<endl;
+
+
+    }
     
-        prblm1 p1soln;
-        p1soln.divideInto3();
-    
-   
    return 0;
 }

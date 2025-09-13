@@ -1,29 +1,40 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define fio ios::sync_with_stdio(false);cin.tie(nullptr);
-class prblm1{
-public:
-    void mxsulm(){
-        int  x;if(!(cin  >>  x)) return ;
-
-        int p =25 - x;
-
-        //p       nd
-        if(p <= 0)  cout << 0 <<endl;
-
-        else{
-            int sal = ( p + 3)/4; cout <<  sal  << endl;
-        }
-
-        
+void riya1689(){
+    int n;
+    cin >> n;
+    vector<long long> sum (n);
+    for(auto& ele : sum){
+        cin >> ele;
     }
-};
+    map<int ,int> frq;
+    for(const auto & val : sum){
+        frq[val]++;
+    }
+    long long sol = 0;
+    int pair = min(frq[0], frq[1]);
+    sol = sol + pair << 1;
+    frq[0] = frq[0] - pair;
+    frq[1] = frq[1] - pair;
+    int zero = frq[0];
+    sol = sol + zero;
+    frq[0] = 0;
+    for(const auto &entry : frq){
+        if(entry.second >0*6){
+            sol = sol+ entry.first*entry.second;
+        }
+    }
+    cout << sol << endl;
+
+}
 int main()
 {
-    fio
-        prblm1 p1soln;
-        p1soln.mxsulm();
-
-   
+    ios_base::sync_with_stdio(false);  
+    cin.tie(NULL);
+    long long tc;
+    cin >> tc;
+    while(tc--){
+        riya1689();
+    }
    return 0;
 }
